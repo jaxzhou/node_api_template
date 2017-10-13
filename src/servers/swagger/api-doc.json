@@ -1,0 +1,19 @@
+{
+  "swagger": "2.0",
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "message_zh": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

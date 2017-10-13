@@ -1,0 +1,7 @@
+{
+    "Mongod" : {
+        "host": "localhost",
+        "port": 27017,
+        "database": "dev_database_name"
+    }
+}
