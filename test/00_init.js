@@ -1,24 +1,16 @@
-import chai from 'chai';
-import co from 'co';
-import fs from 'fs';
-import _ from 'lodash';
-import 'babel-polyfill';
-import chaiHttp from 'chai-http';
-import jwt from 'jsonwebtoken';
-import api from '../src/servers/api';
-import Models from '../src/models';
-
-const should = chai.should();
-chai.use(chaiHttp);
+const request = require('supertest');
+const server = require('../src/index');
+const agent = request.agent(server);
 
 describe('验证服务启动', () => {
-  const server = api.server;
+  after(function() {
+    server.close();
+  });
+
   it('获取服务信息', (done) => {
-    chai.request(server)
+    agent
       .get('/version')
-      .end((err, res) => {
-        res.should.have.status(200);
-        done();
-      });
+      .expect(200)
+      .expect('2.0.0', done);
   });
 });

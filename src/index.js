@@ -1,3 +1,4 @@
-import api from './servers/api';
+const api = require('./server');
+const config = require('config');
 
-api.start()
+module.exports = api.start(config.get('api'));

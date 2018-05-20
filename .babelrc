@@ -1,15 +1,3 @@
 {
-  "presets": [
-    "es2015"
-  ],
-  "plugins":[
-    "transform-class-properties",
-    "transform-decorators-legacy"
-  ],
-  "env":     {
-    "development": {
-      "plugins": [
-      ]
-    }
-  }
+  "plugins": ["transform-decorators-legacy"]
 }

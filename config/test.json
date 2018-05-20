@@ -1,7 +1,9 @@
 {
-    "Mongod" : {
+    "api" : {
         "host": "localhost",
-        "port": 27017,
-        "database": "test_database_name"
+        "port": 9010
+    },
+    "jwt": {
+        "secret": "api_test_secret"
     }
 }
