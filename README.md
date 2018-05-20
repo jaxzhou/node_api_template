@@ -1,8 +1,16 @@
 # node-api-template
 
-## Koa
+## App
 
-## Koa-Router
+- nodejs version:8+ (https://nodejs.org/)
+- Koa (https://koajs.com/)
+- Koa-Router (https://github.com/alexmingoia/koa-router)
+- Babel
+
+```
+npm install
+npm start
+```
 
 ## Middlewares
 
@@ -49,4 +57,10 @@ class MyController {
 	}
 }
 
+```
+
+## Run With PM2
+
+```
+pm2 start api.config.js
 ```
