@@ -1,6 +1,5 @@
 const Controller = require('./index');
-
-const route = Controller.route;
+const {route} = require('../annotation');
 
 class VersionController {
 

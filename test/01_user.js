@@ -13,7 +13,7 @@ describe('UserController', () => {
   });
 
   describe('GET /Users', () => {
-    it('Empty User List', (done) => {
+    it('获取用户列表', (done) => {
       agent
         .get('/users')
         .set('Authorization', `jwt ${authToken}`)
@@ -22,15 +22,40 @@ describe('UserController', () => {
 
     });
 
-    it('Unauthorized', (done) => {
+    it('ErrorHandler:401 Unauthorized', (done) => {
       agent
         .get('/users')
         .expect(401, done);
     });
   });
 
+  describe('POST /Users', () => {
+    it('添加用户', (done) => {
+      const userdata = {name: 'testuser'};
+      agent
+        .post('/users')
+        .set('Authorization', `jwt ${authToken}`)
+        .send(userdata)
+        .expect(200)
+        .expect(userdata, done);
+    });
+
+    it('ErrorHandler:400 提交的数据有错误', (done) => {
+      agent
+        .post('/users')
+        .set('Authorization', `jwt ${authToken}`)
+        .expect(400, done);
+    });
+
+    it('ErrorHandler:401 Unauthorized', (done) => {
+      agent
+        .post('/users')
+        .expect(401, done);
+    });
+  });
+
   describe('GET /Users/:id', () => {
-    it('Empty User Info', (done) => {
+    it('获取用户信息', (done) => {
       agent
         .get('/users/1')
         .set('Authorization', `jwt ${authToken}`)
@@ -39,7 +64,7 @@ describe('UserController', () => {
 
     });
 
-    it('Unauthorized', (done) => {
+    it('ErrorHandler:401 Unauthorized', (done) => {
       agent
         .get('/users/1')
         .expect(401, done);

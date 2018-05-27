@@ -35,34 +35,6 @@ class Controllers {
     });
     return Compose([this.router.routes(), this.router.allowedMethods()])
   }
-
-  static route(method, uri) {
-    return (target, key, descriptor) => {
-      if (!method || !uri) return;
-      const routes = target.routes || {};
-      if (!routes[uri]) {
-        routes[uri] = {};
-      }
-      routes[uri][method.toLowerCase()] = key;
-      Object.defineProperty(target, 'routes', {
-        value: routes
-      });
-    }
-  }
-
-  static auth() {
-    return (target, key, descriptor) => {
-      const authValidate = async (ctx, next) => {
-        if (!ctx.auth) {
-          ctx.response.status = 401;
-        } else {
-          await next();
-        }
-      };
-      const {value} = descriptor;
-      descriptor.value = Compose([authValidate, value]);
-    }
-  }
 }
 
 module.exports = Controllers;
