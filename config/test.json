@@ -5,5 +5,21 @@
     },
     "jwt": {
         "secret": "api_test_secret"
+    },
+    "database": {
+        "pg": {
+            "host": "localhost",
+            "database": "mydb",
+            "port": 5432
+        }
+    },
+    "logger": {
+        "name": "node_api_name",
+        "streams": [{
+            "type": "rotating-file",
+            "path": "./log/infos.log",
+            "period": "1d", 
+            "count": 3
+        }]
     }
 }

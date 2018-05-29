@@ -4,19 +4,22 @@
   "description": "nodejs api template koa2.x",
   "main": "src/index.js",
   "scripts": {
-    "start": "babel-node src/index.js",
+    "start": "NODE_ENV=development babel-node src/index.js",
     "test": "NODE_ENV=test istanbul cover _mocha -- --compilers js:babel-core/register"
   },
   "author": "zhoujinxiu",
   "license": "ISC",
   "dependencies": {
+    "bunyan": "^1.8.12",
     "config": "^1.30.0",
     "joi": "^13.3.0",
     "jsonwebtoken": "^8.2.1",
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",
     "koa-cors": "0.0.16",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "lodash": "^4.17.10",
+    "pg": "^7.4.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
