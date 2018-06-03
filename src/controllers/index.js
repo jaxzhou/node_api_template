@@ -16,6 +16,9 @@ class Controllers {
       if (file === basename) {
         return;
       }
+      if (path.extname(file) != '.js') {
+        return;
+      }
       const filepath = path.join(__dirname, file);
       const controllerClass = require(filepath);
       const controller = new controllerClass();
@@ -31,6 +34,7 @@ class Controllers {
             this.router[method](fullPath, module.bind(controller));
           });
         });
+        console.info(`load constroller ${file}`);
       }
     });
     return Compose([this.router.routes(), this.router.allowedMethods()])
