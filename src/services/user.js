@@ -1,4 +1,4 @@
-
+const Boom = require('boom');
 
 class UserService {
 
@@ -11,6 +11,9 @@ class UserService {
   }
 
   async getUserById(uid) {
+    if (!uid || !parseInt(uid)) {
+      throw Boom.notFound('UserNotFound');
+    }
     return {userid: uid};
   }
 

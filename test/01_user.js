@@ -64,6 +64,31 @@ describe('UserController', () => {
 
     });
 
+    it('ErrorHandler:404 NotFound', (done) => {
+      agent
+        .get('/users/null')
+        .set('Authorization', `jwt ${authToken}`)
+        .expect(404)
+        .expect({
+          error: "Not Found",
+          statusCode: 404,
+          message: '未找到用户'
+        }, done);
+    });
+
+    it('ErrorHandler:404 NotFound en', (done) => {
+      agent
+        .get('/users/null')
+        .set('Authorization', `jwt ${authToken}`)
+        .set('Cookie', ['locale=en-US'])
+        .expect(404)
+        .expect({
+          error: "Not Found",
+          statusCode: 404,
+          message: 'User Not Found'
+        }, done);
+    });
+
     it('ErrorHandler:401 Unauthorized', (done) => {
       agent
         .get('/users/1')

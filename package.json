@@ -10,6 +10,7 @@
   "author": "zhoujinxiu",
   "license": "ISC",
   "dependencies": {
+    "boom": "^7.2.0",
     "bunyan": "^1.8.12",
     "config": "^1.30.0",
     "joi": "^13.3.0",
@@ -17,6 +18,7 @@
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",
     "koa-cors": "0.0.16",
+    "koa-locales": "^1.8.0",
     "koa-router": "^7.4.0",
     "lodash": "^4.17.10",
     "pg": "^7.4.3"

@@ -1,0 +1,8 @@
+{
+	"name": "姓名",
+	"gender": "性别",
+	"errors": {
+		"UserNotFound": "未找到用户",
+		"UserDuplicated": "已存在相同用户"
+	}
+}

@@ -23,6 +23,7 @@ const loggerMiddleware = async function(ctx, next) {
     method: ctx.request.method,
     url: ctx.url,
     remote: ctx.request.ip,
+    status: ctx.response.status,
     responseTime: duration
   };
   logger.info(requestInfo);

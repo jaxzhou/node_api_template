@@ -1,0 +1,8 @@
+{
+	"name": "name",
+	"gender": "gender",
+	"errors": {
+		"UserNotFound": "User Not Found",
+		"UserDuplicated": "User Exist"
+	}
+}
